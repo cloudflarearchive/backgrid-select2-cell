@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Backgrid.js Extensions",
+    "groups": [
+      {
+        "name": "Select2Cell",
+        "classes": [
+          "Backgrid.Extension.Select2Cell",
+          "Backgrid.Extension.Select2CellEditor"
+        ]
+      }
+    ]
+  }
+]
