@@ -5,8 +5,20 @@
   Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
   Licensed under the MIT @license.
 */
+(function (factory) {
 
-(function (window, $, _, Backbone, Backgrid)  {
+  // CommonJS
+  if (typeof exports == "object") {
+    module.exports = factory(require("underscore"),
+                             require("backgrid"));
+  }
+  // Browser
+  else if (typeof _ !== "undefined" &&
+           typeof Backgrid !== "undefined") {
+    factory(_, Backgrid);
+  }
+
+}(function (_, Backgrid)  {
 
   /**
      Select2CellEditor is a cell editor that renders a `select2` select box
@@ -117,4 +129,4 @@
 
   });
 
-}(window, jQuery, _, Backbone, Backgrid));
+}));
