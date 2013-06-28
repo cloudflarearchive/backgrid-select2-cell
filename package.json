@@ -1,6 +1,6 @@
 {
   "name": "backgrid-select2-cell",
-  "version": "0.3.1",
+  "version": "0.3.0",
   "description": "Backgrid.js extension for select cell",
   "main": "backgrid-select2-cell.js",
   "scripts": {
