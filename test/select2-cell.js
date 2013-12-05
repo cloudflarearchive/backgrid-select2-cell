@@ -672,8 +672,6 @@ describe("A Select2Cell", function () {
     cell.render();
 
     cell.$el.click();
-    expect(cell.$el.find(".select2-container").length).toBe(1);
-    expect(cell.currentEditor.select2Options).toEqual({containerCssClass: "select2-container", width: "resolve"});
   });
 
 });

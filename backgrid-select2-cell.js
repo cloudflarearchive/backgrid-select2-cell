@@ -35,7 +35,6 @@
 
     /** @property */
     events: {
-      "close": "save",
       "change": "save"
     },
 
@@ -52,8 +51,7 @@
        edit mode.
      */
     setSelect2Options: function (options) {
-      this.select2Options = _.extend({containerCssClass: "select2-container"},
-                                     options || {});
+      this.select2Options = _.extend(options || {});
     },
 
     /**
@@ -73,13 +71,25 @@
     */
     postRender: function () {
       var self = this;
-      this.$el.parent()
-        .find("." + this.select2Options.containerCssClass)
-        .on("focusout", function (e) {
-          if (!e.relatedTarget) self.close(e);
+      this.$el
+        .on("select2-blur", function (e) {
+          e.type = "blur";
+          self.close(e);
+          self.select2Focused = false;
         })
+        .on("select2-focus", function (e) {
+          self.select2Focused = true;
+        })
+        .select2("container")
         .on("keydown", this.close)
-        .attr("tabindex", -1).focus();
+        .on("focusout", function (e) {
+          if (!self.select2Focused) {
+            e.type = "blur"
+            self.close(e);
+          }
+        })
+        .attr("tabindex", -1)
+        .focus();
     },
 
     remove: function () {
