@@ -363,7 +363,7 @@ describe("A Extension.Select2CellEditor", function () {
     });
 
     editor.$el.val(1).change();
-    expect(editor.formatter.toRaw).toHaveBeenCalledWith("1");
+    expect(editor.formatter.toRaw).toHaveBeenCalledWith("1", jasmine.any(Backbone.Model));
     expect(editor.formatter.toRaw.calls.length).toBe(1);
     expect(editor.model.get(editor.column.get("name"))).toBe("1");
 
@@ -399,7 +399,7 @@ describe("A Extension.Select2CellEditor", function () {
     });
 
     editor.$el.val([1, 2]).change();
-    expect(editor.formatter.toRaw).toHaveBeenCalledWith(["1", "2"]);
+    expect(editor.formatter.toRaw).toHaveBeenCalledWith(["1", "2"], jasmine.any(Backbone.Model));
     expect(editor.formatter.toRaw.calls.length).toBe(1);
     expect(editor.model.get(editor.column.get("name"))).toEqual(["1", "2"]);
 
@@ -408,10 +408,13 @@ describe("A Extension.Select2CellEditor", function () {
     expect(backgridEditedTriggerArgs[1]).toEqual(editor.column);
     expect(backgridEditedTriggerArgs[2].passThru()).toBe(true);
 
+    editor.formatter.toRaw.reset();
+    editor.trigger.reset();
+
     backgridEditedTriggerCount = 0;
     editor.$el.val(null).change();
-    expect(editor.formatter.toRaw).toHaveBeenCalledWith(null);
-    expect(editor.formatter.toRaw.calls.length).toBe(2);
+    expect(editor.formatter.toRaw).toHaveBeenCalledWith(null, jasmine.any(Backbone.Model));
+    expect(editor.formatter.toRaw.calls.length).toBe(1);
     expect(editor.model.get(editor.column.get("name"))).toBe(null);
 
     expect(backgridEditedTriggerCount).toBe(1);
@@ -448,7 +451,7 @@ describe("A Extension.Select2CellEditor", function () {
     });
 
     editor.$el.select2("val", 1).change();
-    expect(editor.formatter.toRaw).toHaveBeenCalledWith("1");
+    expect(editor.formatter.toRaw).toHaveBeenCalledWith("1", jasmine.any(Backbone.Model));
     expect(editor.formatter.toRaw.calls.length).toBe(1);
     expect(editor.model.get(editor.column.get("name"))).toBe("1");
 
@@ -484,7 +487,7 @@ describe("A Extension.Select2CellEditor", function () {
     });
 
     editor.$el.select2("val", [1, 2]).change();
-    expect(editor.formatter.toRaw).toHaveBeenCalledWith(["1", "2"]);
+    expect(editor.formatter.toRaw).toHaveBeenCalledWith(["1", "2"], jasmine.any(Backbone.Model));
     expect(editor.formatter.toRaw.calls.length).toBe(1);
     expect(editor.model.get(editor.column.get("name"))).toEqual(["1", "2"]);
 
@@ -495,7 +498,7 @@ describe("A Extension.Select2CellEditor", function () {
 
     backgridEditedTriggerCount = 0;
     editor.$el.select2("val", null).change();
-    expect(editor.formatter.toRaw).toHaveBeenCalledWith(null);
+    expect(editor.formatter.toRaw).toHaveBeenCalledWith(null, jasmine.any(Backbone.Model));
     expect(editor.formatter.toRaw.calls.length).toBe(2);
     expect(editor.model.get(editor.column.get("name"))).toBe(null);
 
@@ -533,22 +536,6 @@ describe("A Select2Cell", function () {
         ["Maize", "m"]
       ]
     }];
-  });
-
-  it("throws TypeError is optionValues is undefined", function () {
-
-    expect(function () {
-      new Backgrid.Extension.Select2Cell({
-        column: {
-          name: "gender",
-          cell: "select2"
-        },
-        model: new Backbone.Model({
-          gender: "m"
-        })
-      });
-    }).toThrow(new TypeError("'optionValues' is required"));
-
   });
 
   it("applies a select2-cell class to the cell", function () {
