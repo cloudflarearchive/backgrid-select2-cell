@@ -1,3 +1,8 @@
+backbone-select2-cell
+=====================
+
+[![Build Status](https://travis-ci.org/wyuenho/backgrid-select2-cell.png?branch=master)](https://travis-ci.org/wyuenho/backgrid-select2-cell)
+
 Dependencies
 ============
 
