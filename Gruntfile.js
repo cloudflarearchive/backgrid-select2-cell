@@ -36,7 +36,7 @@ module.exports = function (grunt) {
         ],
         options: {
           specs: [
-            "test/s*.js"
+            "test/select2-cell.js"
           ],
           template: require("grunt-template-jasmine-istanbul"),
           templateOptions: {
@@ -54,8 +54,7 @@ module.exports = function (grunt) {
             "test/vendor/js/underscore.js",
             "test/vendor/js/backbone.js",
             "test/vendor/js/backgrid.js",
-            'test/vendor/js/backbone-pageable.js',
-            'test/vendor/js/select2-cell.js'
+            "test/vendor/js/select2.js"
           ]
         }
       }
