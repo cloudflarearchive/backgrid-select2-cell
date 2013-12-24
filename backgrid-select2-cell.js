@@ -86,7 +86,7 @@
         .on("keydown", this.close)
         .on("focusout", function (e) {
           if (!self.select2Focused) {
-            e.type = "blur"
+            e.type = "blur";
             self.close(e);
           }
         })
