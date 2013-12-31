@@ -13,5 +13,5 @@ Earlier versions of select2 is not supported.
 Usage
 ====
 
-See the [Select2Cell](http://wyuenho.github.com/backgrid/#api-select2-cell) section in
+See the [Select2Cell](http://backgridjs.com/ref/extensions/select2-cell.html) section in
 the documentation.
