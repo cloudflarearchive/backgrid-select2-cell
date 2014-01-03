@@ -1,0 +1,30 @@
+{
+  "name": "backgrid-select2-cell",
+  "main": [
+    "backgrid-select2-cell.js",
+    "backgrid-select2-cell.css"
+  ],
+  "version": "0.3.0-beta",
+  "description": "Backgrid.js extension to extend the core SelectCell using select2.",
+  "homepage": "https://github.com/wyuenho/backgrid-select2-cell",
+  "authors": [
+    "Jimmy Yuen Ho Wong <wyuenho@gmail.com>"
+  ],
+  "keywords": [
+    "backbone",
+    "backgrid"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "select2": "~3.4.5",
+    "underscore": "~1.5.2",
+    "backgrid": "0.3.0-beta"
+  }
+}
