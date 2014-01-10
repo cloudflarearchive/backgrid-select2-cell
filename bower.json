@@ -4,7 +4,7 @@
     "backgrid-select2-cell.js",
     "backgrid-select2-cell.css"
   ],
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Backgrid.js extension to extend the core SelectCell using select2.",
   "homepage": "https://github.com/wyuenho/backgrid-select2-cell",
   "authors": [
@@ -25,6 +25,6 @@
   "dependencies": {
     "select2": "~3.4.5",
     "underscore": "~1.5.2",
-    "backgrid": "0.3.0-beta"
+    "backgrid": "~0.3.0"
   }
 }
