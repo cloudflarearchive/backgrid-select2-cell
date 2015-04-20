@@ -6,17 +6,21 @@
   Licensed under the MIT @license.
 */
 (function (root, factory) {
-
-  // CommonJS
-  if (typeof exports == "object") {
-    require("select2");
-    module.exports = factory(root,
-                             require("underscore"),
-                             require("backgrid"));
+  if (typeof define === "function" && define.amd) {
+    // AMD (+ global for extensions)
+    define(["underscore", "backgrid", "select2"], function (_, Backgrid) {
+      return factory(root, _, Backgrid);
+    });
   }
-  // Browser
-  else factory(root, root._, root.Backgrid);
-
+  else if (typeof exports === "object") {
+    // CommonJS
+    require("select2");
+    module.exports = factory(root, require("underscore"), require("backgrid"));
+  }
+  else {
+    // Browser
+    factory(root, root._, root.Backgrid);
+  }
 }(this, function (root, _, Backgrid)  {
 
   "use strict";
