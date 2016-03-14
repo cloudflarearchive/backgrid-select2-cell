@@ -4,7 +4,7 @@
   "description": "Backgrid.js extension to extend the core SelectCell using select2.",
   "main": "backgrid-select2-cell.js",
   "scripts": {
-    "test": "grunt jasmine"
+    "test": "karma start --single-run --browsers Chrome,Firefox"
   },
   "repository": {
     "type": "git",
@@ -21,14 +21,26 @@
     "url": "https://github.com/wyuenho/backgrid-select2-cell/issues"
   },
   "devDependencies": {
-    "grunt-contrib-clean": "~0.4.1",
-    "grunt-jsduck": "~0.1.4",
-    "grunt-contrib-uglify": "~0.2.2",
-    "grunt-cli": "~0.1.9",
-    "grunt": "~0.4.1",
-    "grunt-recess": "~0.3.3",
-    "grunt-template-jasmine-istanbul": "~0.2.4",
-    "grunt-contrib-jasmine": "~0.5.1"
+    "backbone": "~1.2.3",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.0",
+    "grunt-jsduck": "^1.0.1",
+    "grunt-karma": "^0.12.1",
+    "grunt-recess": "^1.0.1",
+    "jquery": "^2.2.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.5",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.7",
+    "karma-jasmine-html-reporter": "^0.2.0",
+    "karma-safari-launcher": "^0.1.1"
   },
-  "private": true
+  "dependencies": {
+    "backgrid": "~0.3.7",
+    "select2": "~4.0.2",
+    "underscore": "^1.8.3"
+  }
 }

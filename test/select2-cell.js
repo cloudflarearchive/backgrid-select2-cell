@@ -352,12 +352,12 @@ describe("A Extension.Select2CellEditor", function () {
     editor.setOptionValues(optionValues);
     editor.render();
 
-    spyOn(editor.formatter, "toRaw").andCallThrough();
-    spyOn(editor, "trigger").andCallThrough();
+    spyOn(editor.formatter, "toRaw").and.callThrough();
+    spyOn(editor, "trigger").and.callThrough();
 
     editor.$el.val(1).change();
     expect(editor.formatter.toRaw).toHaveBeenCalledWith("1", editor.model);
-    expect(editor.formatter.toRaw.calls.length).toBe(1);
+    expect(editor.formatter.toRaw).toHaveBeenCalledTimes(1);
     expect(editor.model.get(editor.column.get("name"))).toBe("1");
 
     // multiple selection
@@ -376,16 +376,16 @@ describe("A Extension.Select2CellEditor", function () {
     editor.setOptionValues(optionValues);
     editor.render();
 
-    spyOn(editor.formatter, "toRaw").andCallThrough();
+    spyOn(editor.formatter, "toRaw").and.callThrough();
 
     editor.$el.val([1, 2]).change();
     expect(editor.formatter.toRaw).toHaveBeenCalledWith(["1", "2"], editor.model);
-    expect(editor.formatter.toRaw.calls.length).toBe(1);
+    expect(editor.formatter.toRaw).toHaveBeenCalledTimes(1);
     expect(editor.model.get(editor.column.get("name"))).toEqual(["1", "2"]);
 
     editor.$el.val(null).change();
     expect(editor.formatter.toRaw).toHaveBeenCalledWith(null, editor.model);
-    expect(editor.formatter.toRaw.calls.length).toBe(2);
+    expect(editor.formatter.toRaw).toHaveBeenCalledTimes(2);
     expect(editor.model.get(editor.column.get("name"))).toBe(null);
   });
 
