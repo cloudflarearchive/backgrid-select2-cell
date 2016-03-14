@@ -78,28 +78,8 @@
     */
     postRender: function () {
       var self = this;
-      if (self.multiple) self.$el.select2("container").keydown(self.close);
-      else self.$el.data("select2").focusser.keydown(self.close);
-
-      self.$el.on("select2-blur", function (e) {
-        if (!self.multiple) {
-          e.type = "blur";
-          self.close(e);
-        }
-        else {
-          // HACK to get around https://github.com/ivaynberg/select2/issues/2011
-          // select2-blur is triggered from blur and is fired repeatibly under
-          // multiple select. Since blue is fired before everything, but focus
-          // is set in focus and click, we need to wait for a while so other
-          // event handlers may have a chance to run.
-          var id = root.setTimeout(function () {
-            root.clearTimeout(id);
-            if (!self.$el.select2("isFocused")) {
-              e.type = "blur";
-              self.close(e);
-            }
-          }, 200);
-        }
+      self.$el.on("blur", function (e) {
+        self.close(e);
       }).select2("focus");
     },
 

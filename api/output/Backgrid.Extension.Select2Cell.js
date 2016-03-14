@@ -75,7 +75,7 @@ Ext.data.JsonP.Backgrid_Extension_Select2Cell({
 
     ]
   },
-  "linenr": 109,
+  "linenr": 93,
   "files": [
     {
       "filename": "backgrid-select2-cell.js",
