@@ -13,17 +13,18 @@
   } else if (typeof exports === 'object') {
     // CommonJS
     require("select2");
-    module.exports = factory(root,
-                             require("underscore"),
+    module.exports = factory(require("underscore"),
                              require("backgrid"));
   } else {
     // Browser globals
-    factory(root, root._, root.Backgrid);
+    factory(root._, root.Backgrid);
   }
 
-}(this, function (root, _, Backgrid)  {
+}(this, function (_, Backgrid)  {
 
   "use strict";
+
+  var exports = {};
 
   /**
      Select2CellEditor is a cell editor that renders a `select2` select box
@@ -36,7 +37,9 @@
      @class Backgrid.Extension.Select2CellEditor
      @extends Backgrid.SelectCellEditor
    */
-  var Select2CellEditor = Backgrid.Extension.Select2CellEditor = Backgrid.SelectCellEditor.extend({
+  var Select2CellEditor =
+      exports.Select2CellEditor =
+      Backgrid.Extension.Select2CellEditor = Backgrid.SelectCellEditor.extend({
 
     /** @property */
     events: {
@@ -97,7 +100,7 @@
      @class Backgrid.Extension.Select2Cell
      @extends Backgrid.SelectCell
    */
-  Backgrid.Extension.Select2Cell = Backgrid.SelectCell.extend({
+  exports.Select2Cell = Backgrid.Extension.Select2Cell = Backgrid.SelectCell.extend({
 
     /** @property */
     className: "select2-cell",
@@ -129,5 +132,7 @@
     }
 
   });
+
+  return exports;
 
 }));
