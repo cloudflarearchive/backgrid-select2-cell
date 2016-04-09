@@ -3,6 +3,7 @@
   "version": "0.3.7",
   "description": "Backgrid.js extension to extend the core SelectCell using select2.",
   "main": "backgrid-select2-cell.js",
+  "style": "backgrid-select2-cell.css",
   "scripts": {
     "test": "karma start --single-run --browsers Chrome,Firefox"
   },
