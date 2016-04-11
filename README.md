@@ -6,7 +6,7 @@ backbone-select2-cell
 Dependencies
 ============
 
-[select2 == 3.4.5](http://ivaynberg.github.com/select2/)
+[select2 >= 4.0.0](http://ivaynberg.github.com/select2/)
 
 Earlier versions of select2 is not supported.
 
