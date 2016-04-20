@@ -81,7 +81,8 @@
     */
     postRender: function () {
       var self = this;
-      self.$el.on("blur", function (e) {
+      self.$el.on("select2:close", function (e) {
+        e.type = "blur";
         self.close(e);
       }).select2("focus");
     },
