@@ -30,7 +30,7 @@
     "grunt-jsduck": "^1.0.1",
     "grunt-karma": "^0.12.2",
     "grunt-recess": "^1.0.1",
-    "jquery": "^2.2.1",
+    "jquery": "^3.0.0",
     "karma": "^1.0.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^0.5.5",
